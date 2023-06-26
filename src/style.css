@@ -11,3 +11,38 @@
     'Times New Roman',
     serif;
 }
+
+a,
+a:active,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+header {
+  width: 100vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+header ul {
+  display: flex;
+  gap: 10%;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+}
+
+#logo {
+  width: 50px;
+}
