@@ -1,11 +1,9 @@
 <a name="readme-top"></a>
 
-![Preview](preview.png)
-
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Leaderboard Project](#-leaderboard-project)
+- [📖 JavaScript Capstone Project](#-javascript-capstone-project)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -22,9 +20,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Leaderboard Project<a name="about-project"></a>
+# 📖 JavaScript Capstone Project<a name="about-project"></a>
 
-**This is a project to test the use of APIs and working with JSON data to populate a web page. Created using JavaScript and HTML**
+**Microverse module 2 capstone project.**
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -67,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<a href="https://microhass.github.io/leaderboard/dist/"> See Project 🚀</a>
+<a href="https://microhass.github.io/javascript-capstone-2/dist/"> See Project 🚀</a>
 
 <!-- GETTING STARTED -->
 
@@ -82,13 +80,13 @@ To get get a local copy up and running, you can follow these simple steps:
 Clone the repository to your local machine using the following command:
 
 ```sh
-  git clone https://github.com/microhass/leaderboard.git
+  git clone https://github.com/microhass/javascript-capstone-2.git
 ```
 
 Navigate to the project directory:
 
 ```sh
- cd leaderboard
+ cd javascript-capstone-2
 ```
 
 Install the necessary dependencies by running:
@@ -109,9 +107,9 @@ That's it! With these simple steps, you should be able to get up and running wit
 
 ### Usage
 
-To use this project, simply visit the following link: https://github.com/microhass/leaderboard
+To use this project, simply visit the following link: https://github.com/microhass/javascript-capstone-2
 
-- **Open the <a href="https://microhass.github.io/leaderboard/dist">project 🚀</a> in your web browser.**
+- **Open the <a href="https://microhass.github.io/javascript-capstone-2/dist">project 🚀</a> in your web browser.**
 
 - **Use the provided form to add books to the list.**
 
