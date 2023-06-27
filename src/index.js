@@ -40,3 +40,4 @@ function showComments(element) {
 
 // Add an event listener to the button.
 showComments.addEventListener('click', showComments);
+
