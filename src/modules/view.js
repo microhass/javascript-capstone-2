@@ -2,11 +2,11 @@ import likeImg from '../../images/like.png';
 
 const showsContainer = document.querySelector('main');
 
-const renderShows = (shows) => {
+const renderShows = async (shows) => {
   const showsMarkup = shows
     .map(
       (show) => `
-        <div class="card">
+        <div class="card" id="${show.id}">
         <div class="movie-img">
           <img src="${show.image.original}" alt="${show.name}" />
         </div>
@@ -14,7 +14,7 @@ const renderShows = (shows) => {
           <div class="name-like">
             <p class="name">${show.name}</p>
             <div class="likes">
-              <p class="like">8 likes</p>
+              <p class="like">${show.likes} likes</p>
               <img src="${likeImg}" alt="like"
               id="like-img" />
             </div>
