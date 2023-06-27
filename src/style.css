@@ -3,13 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   transition: all 0.1s ease-in-out;
-  font-family:
-    Cambria,
-    Cochin,
-    Georgia,
-    Times,
-    'Times New Roman',
-    serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 a,
@@ -45,63 +39,4 @@ header ul {
 
 #logo {
   width: 50px;
-}
-
-/* ========== Main section ============ */
-main {
-  padding: 15px;
-  display: grid;
-  row-gap: 40px;
-  column-gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 8rem;
-}
-
-.card {
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-.card .movie-img,
-.movie-img img {
-  width: 100%;
-  max-height: 468px;
-}
-
-.movie-details {
-  padding: 6px 10px;
-  display: grid;
-  gap: 20px;
-}
-
-.name-like,
-.likes,
-.card-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.likes {
-  width: 25%;
-}
-
-.likes #like-img {
-  width: 25px;
-  cursor: pointer;
-}
-
-.card-actions {
-  flex-direction: column;
-  align-items: unset;
-  gap: 15px;
-  margin-bottom: 10px;
-}
-
-.card-actions button {
-  font-size: 16px;
-  padding: 5px;
-  cursor: pointer;
 }
