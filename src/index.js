@@ -1,6 +1,7 @@
+import * as api from './modules/api.js';
+import renderShows from './modules/view.js';
 import './style.css';
-// const apiUrl = 'https://api.tvmaze.com/shows';
-// const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EK8AqlUP7MtIYG7gJYqn/likes/';
+
 function showComments(element) {
   // Get the top section of the element.
   const topSection = element.querySelector('.top-section');
@@ -41,3 +42,7 @@ function showComments(element) {
 // Add an event listener to the button.
 showComments.addEventListener('click', showComments);
 
+window.addEventListener('DOMContentLoaded', async () => {
+  const shows = await api.getShows();
+  renderShows(shows);
+});
