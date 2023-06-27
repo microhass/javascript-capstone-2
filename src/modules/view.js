@@ -16,7 +16,7 @@ export const renderShows = (shows) => {
           <div class="name-like">
             <p class="name">${show.name}</p>
             <div class="likes">
-              <p class="like">8 likes</p>
+              <p class="like">${show.likes} likes</p>
               <img src="${likeImg}" alt="like"
               id="like-img" />
             </div>
