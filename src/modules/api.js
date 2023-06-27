@@ -7,4 +7,20 @@ export const getShows = async () => {
   return shows.splice(59, 12);
 };
 
+export const getShow = async (showId) => {
+  const sum = 1 + 1;
+  return sum + showId;
+};
 export const getLikes = async () => {};
+export const getComments = async (showId) => {
+  const sum = 1 + 1;
+  return sum + showId;
+};
+export const postLike = async (showId) => {
+  const sum = 1 + 1;
+  return sum + showId;
+};
+export const postComment = async (showId, author, comment) => {
+  const sum = 1 + 1;
+  return sum + showId + author + comment;
+};

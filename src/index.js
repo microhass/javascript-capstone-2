@@ -1,48 +1,34 @@
 import * as api from './modules/api.js';
-import renderShows from './modules/view.js';
+import * as view from './modules/view.js';
 import './style.css';
 
-function showComments(element) {
-  // Get the top section of the element.
-  const topSection = element.querySelector('.top-section');
+const addCommentForm = document.querySelector('.modal form');
+const mainSection = document.querySelector('main');
 
-  // Create a new popup element.
-  const popup = document.createElement('div');
-  popup.classList.add('popup');
+const commentSubmitHandler = async (e) => {
+  e.preventDefault();
+  const showId = document.querySelector('.modal').id;
+  const inputAuthor = document.querySelector('#author');
+  const inputComment = document.querySelector('#insight');
 
-  // Add the top section to the popup element.
-  popup.appendChild(topSection);
+  if (inputAuthor.trim() === '' || inputComment.trim() === '') return;
 
-  // Calculate the position of the popup element.
-  const top = element.offsetTop;
-  const left = element.offsetLeft;
+  await api.postComment(showId, inputAuthor, inputComment);
+};
 
-  // Position the popup element.
-  popup.style.top = `${top}px`;
-  popup.style.left = `${left}px`;
+mainSection.addEventListener('click', async (e) => {
+  const targetId = e.target.id;
+  const showId = e.target.closest('.card').id;
+  if (targetId === 'comments') {
+    await view.renderModal(showId);
+  } else if (targetId === 'like-img') {
+    await api.postLike(showId);
+  }
+});
 
-  // Display the popup element.
-  popup.style.display = 'block';
-
-  // Get the selected item ID from the button.
-  const itemId = element.getAttribute('data-item-id');
-
-  // Make an API call to get the details of the selected item.
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `/api/items/${itemId}`);
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      const itemDetails = JSON.parse(xhr.responseText);
-      popup.innerHTML = `${itemDetails.name} - ${itemDetails.description}`;
-    }
-  };
-  xhr.send();
-}
-
-// Add an event listener to the button.
-showComments.addEventListener('click', showComments);
+addCommentForm.addEventListener('submit', commentSubmitHandler);
 
 window.addEventListener('DOMContentLoaded', async () => {
   const shows = await api.getShows();
-  renderShows(shows);
+  view.renderShows(shows);
 });
