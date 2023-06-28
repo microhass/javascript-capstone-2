@@ -12,12 +12,23 @@ const renderComments = (comments) => {
   commentsDiv.innerHTML = '';
   const commentElements = comments.map((comment) => {
     const commentElement = document.createElement('div');
+    const profilePicture = document.createElement('img');
+    profilePicture.src = comment.author.profilePictureUrl;
     commentElement.innerHTML = `
-      <strong>${comment.author}</strong>: ${comment.insight}
+      <strong>
+        <img src="${profilePicture.src}" alt="${comment.author.username}" />
+        ${comment.author.username}
+      </strong>: ${comment.insight}
     `;
     return commentElement;
   });
   commentsDiv.appendChild(...commentElements);
+};
+
+const commentCounter = () => {
+  const commentsDiv = document.querySelector('#comments');
+  const comments = commentsDiv.querySelectorAll('div');
+  return comments.length;
 };
 
 const addCommentForm = document.querySelector('.modal form');
@@ -45,6 +56,11 @@ const commentSubmitHandler = async (e) => {
   // Clear the comment form.
   inputAuthor.value = '';
   inputComment.value = '';
+
+  // Update the comment counter.
+  const commentCount = commentCounter();
+  const commentCountElement = document.querySelector('#comment-count');
+  commentCountElement.innerHTML = `${commentCount}`;
 };
 
 mainSection.addEventListener('click', async (e) => {
@@ -62,11 +78,9 @@ addCommentForm.addEventListener('submit', commentSubmitHandler);
 window.addEventListener('DOMContentLoaded', async () => {
   const shows = await api.getShows();
   view.renderShows(shows);
+
+  // Set the initial comment count.
+  const commentCount = commentCounter();
+  const commentCountElement = document.querySelector('#comment-count');
+  commentCountElement.innerHTML = `${commentCount}`;
 });
-/* eslint-disable */
-// Load the item comments when the popup loads.
-commentsDiv.addEventListener('load', async () => {
-  const comments = await getComments();
-  renderComments(comments);
-});
-/* eslint-enable  */
