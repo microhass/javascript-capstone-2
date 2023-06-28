@@ -5,21 +5,30 @@ import './style.css';
 const mainSection = document.querySelector('main');
 const modal = document.querySelector('.modal');
 let addCommentForm;
+let closeModalIcon;
 let shows = [];
 
 const commentSubmitHandler = async (e) => {
   e.preventDefault();
   const showId = modal.querySelector('.popup').id;
-  const inputAuthor = document.querySelector('#author');
-  const inputComment = document.querySelector('#insight');
+  const inputAuthor = document.querySelector('#author').value;
+  const inputComment = document.querySelector('#insight').value;
 
   if (inputAuthor.trim() === '' || inputComment.trim() === '') return;
 
   await api.postComment(showId, inputAuthor, inputComment);
+  await view.renderComments(showId);
+  view.clearForm();
 };
 
+modal.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal')) view.hideModal();
+});
+
 const addModalListeners = () => {
+  closeModalIcon = document.querySelector('.close');
   addCommentForm = modal.querySelector('form');
+  closeModalIcon.addEventListener('click', view.hideModal);
   addCommentForm.addEventListener('submit', commentSubmitHandler);
 };
 
@@ -28,6 +37,7 @@ mainSection.addEventListener('click', async (e) => {
   const showId = e.target.closest('.card').id;
   if (targetId === 'comments') {
     await view.showModal(showId);
+    modal.classList.remove('hide-modal');
     addModalListeners();
   } else if (targetId === 'like-img') {
     await api.postLike(showId);
@@ -41,4 +51,5 @@ mainSection.addEventListener('click', async (e) => {
 window.addEventListener('DOMContentLoaded', async () => {
   shows = await api.getShowsAndLikes();
   view.renderShows(shows);
+  view.renderShowsCount();
 });
