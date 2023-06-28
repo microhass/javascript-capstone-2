@@ -2,12 +2,13 @@ import * as api from './modules/api.js';
 import * as view from './modules/view.js';
 import './style.css';
 
-const addCommentForm = document.querySelector('.modal form');
 const mainSection = document.querySelector('main');
+const modal = document.querySelector('.modal');
+let addCommentForm;
 
 const commentSubmitHandler = async (e) => {
   e.preventDefault();
-  const showId = document.querySelector('.modal').id;
+  const showId = modal.querySelector('.popup').id;
   const inputAuthor = document.querySelector('#author');
   const inputComment = document.querySelector('#insight');
 
@@ -16,19 +17,23 @@ const commentSubmitHandler = async (e) => {
   await api.postComment(showId, inputAuthor, inputComment);
 };
 
+const addModalListeners = () => {
+  addCommentForm = modal.querySelector('form');
+  addCommentForm.addEventListener('submit', commentSubmitHandler);
+};
+
 mainSection.addEventListener('click', async (e) => {
   const targetId = e.target.id;
   const showId = e.target.closest('.card').id;
   if (targetId === 'comments') {
-    await view.renderModal(showId);
+    await view.showModal(showId);
+    addModalListeners();
   } else if (targetId === 'like-img') {
     await api.postLike(showId);
   }
 });
 
-addCommentForm.addEventListener('submit', commentSubmitHandler);
-
 window.addEventListener('DOMContentLoaded', async () => {
-  const shows = await api.getShows();
+  const shows = await api.getShowsAndLikes();
   view.renderShows(shows);
 });
