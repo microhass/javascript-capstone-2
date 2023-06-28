@@ -21,12 +21,14 @@ export const getLikes = async () => {
 
 export const postLike = async (showId) => {
   await axios.post(likesUrl, {
-    'item-id': showId,
+    item_id: +showId,
   });
 };
 
 export const getComments = async (showId) => {
-  const response = await axios.get(`${commentsUrl}?item_id=${showId}`);
+  const response = await axios.get(
+    `${commentsUrl}?item_id=${showId}`,
+  );
   return response.data;
 };
 

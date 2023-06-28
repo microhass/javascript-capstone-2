@@ -5,6 +5,7 @@ import './style.css';
 const mainSection = document.querySelector('main');
 const modal = document.querySelector('.modal');
 let addCommentForm;
+let shows = [];
 
 const commentSubmitHandler = async (e) => {
   e.preventDefault();
@@ -30,10 +31,14 @@ mainSection.addEventListener('click', async (e) => {
     addModalListeners();
   } else if (targetId === 'like-img') {
     await api.postLike(showId);
+    shows = await api.getShowsAndLikes();
+    const prevLikes = shows.find((show) => show.id === +showId).likes;
+    const newLikes = `${+prevLikes} likes`;
+    e.target.previousElementSibling.textContent = newLikes;
   }
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const shows = await api.getShowsAndLikes();
+  shows = await api.getShowsAndLikes();
   view.renderShows(shows);
 });
