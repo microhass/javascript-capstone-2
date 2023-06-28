@@ -32,3 +32,34 @@ window.addEventListener('DOMContentLoaded', async () => {
   const shows = await api.getShows();
   view.renderShows(shows);
 });
+const commentsDiv = document.querySelector('#comments');
+const showId = document.querySelector('.modal').id;
+
+// Get the item comments from the Involvement API.
+const getComments = async () => {
+  const comments = await api.getComments(showId);
+  if (!comments) {
+    return;
+  }
+  return comments;
+};
+
+// Render the item comments in the popup.
+const renderComments = (comments) => {
+  commentsDiv.innerHTML = '';
+  for (const comment of comments) {
+    const commentElement = document.createElement('div');
+    commentElement.innerHTML = `
+      <strong>${comment.author}</strong>: ${comment.insight}
+    `;
+    commentsDiv.appendChild(commentElement);
+  }
+};
+
+// Load the item comments when the popup loads.
+commentsDiv.addEventListener('load', async () => {
+  const comments = await getComments();
+  if (comments) {
+    renderComments(comments);
+  }
+});
