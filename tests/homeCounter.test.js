@@ -8,8 +8,6 @@ describe('App can render tasks', () => {
       + '  <div class="card"><div>'
       + '</main>';
 
-    // const shows = document.querySelectorAll('.card');
-    // expect(list).toHaveLength(1);
     const showCount = countHomeShows();
     expect(showCount).toBe(3);
   });

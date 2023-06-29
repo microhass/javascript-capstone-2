@@ -37,6 +37,7 @@ mainSection.addEventListener('click', async (e) => {
   const showId = e.target.closest('.card').id;
   if (targetId === 'comments') {
     await view.showModal(showId);
+    view.renderCommentsCount()
     modal.classList.remove('hide-modal');
     addModalListeners();
   } else if (targetId === 'like-img') {

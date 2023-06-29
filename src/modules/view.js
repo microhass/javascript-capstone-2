@@ -1,5 +1,6 @@
 import * as api from './api.js';
 import countHomeShows from './homeCounter.js';
+import countComments from './commentsCounter.js';
 import likeImg from '../../images/like.png';
 import closeIcon from '../../images/close.png';
 
@@ -80,7 +81,7 @@ export const showModal = async (showId) => {
       </div>
     </section>
     <section class="comments-section">
-      <h3>Comments <span id="count">(3)</span></h3>
+      <h3>Comments <span id="count">()</span></h3>
       <ul class="comments">
         
       </ul>
@@ -120,6 +121,11 @@ export const hideModal = () => {
 export const renderShowsCount = () => {
   const count = countHomeShows();
   document.querySelector('#shows-count').innerHTML = `(${count})`;
+};
+
+export const renderCommentsCount = () => {
+  const count = countComments();
+  document.querySelector('.comments-section #count').innerHTML = `(${count})`;
 };
 
 export const clearForm = () => {
