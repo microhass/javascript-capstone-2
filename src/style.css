@@ -121,15 +121,13 @@ form button {
 
 /* ============== Modal ============= */
 .modal {
-  background-color: rgba(0, 0, 0, 0.9);
-  position: absolute;
-  overflow-y: scroll;
-  width: 90vw;
-  margin-left: 5vw;
-  max-width: 1200px;
-  margin-top: 3rem;
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   padding: 2rem 0;
-  border-radius: 8px;
   z-index: 10;
   opacity: 1;
   color: #fff;
@@ -144,14 +142,32 @@ form button {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: fit-content;
   margin-bottom: 4rem;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 90vw;
+  height: 90vh;
+  max-width: 800px;
+  padding: 2rem 5vw 2rem 4rem;
+  border-radius: 8px;
+}
+
+.popup .close {
+  width: 30px;
+  height: 50px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.popup .close img {
+  width: 100%;
 }
 
 .popup h3,
 .popup h2 {
   text-align: center;
   font-size: 24px;
+  margin: 20px;
 }
 
 .popup h2 {

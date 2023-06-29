@@ -1,8 +1,11 @@
 import * as api from './api.js';
+import countHomeShows from './homeCounter.js';
 import likeImg from '../../images/like.png';
+import closeIcon from '../../images/close.png';
 
 const showsContainer = document.querySelector('main');
 const modal = document.querySelector('.modal');
+let commentsContainer;
 
 export const renderShows = (shows) => {
   const showsMarkup = shows
@@ -35,12 +38,33 @@ export const renderShows = (shows) => {
   showsContainer.innerHTML = showsMarkup;
 };
 
+export const renderComments = async (showId) => {
+  const comments = await api.getComments(showId);
+  const commentsMarkup = comments
+    .map(
+      (comment) => `
+          <li class="comment">
+            <span id="date">${comment.creation_date}</span>
+            <span class="author">${comment.username}</span>
+            <span class="insight"
+              >${comment.comment}</span
+            >
+        </li>
+        `,
+    )
+    .join('');
+
+  commentsContainer.innerHTML = commentsMarkup;
+};
+
 export const showModal = async (showId) => {
   const show = await api.getShow(showId);
-  const comments = await api.getComments(showId);
 
   const popupMarkup = `
   <div class="popup" id="${show.id}">
+    <div class="close">
+      <img src="${closeIcon}" alt="Close popup" />
+    </div>
     <section class="show-section">
       <div class="show-img">
         <img src="${show.image.original}" alt="${show.name}" />
@@ -50,7 +74,7 @@ export const showModal = async (showId) => {
         <div>
           <span>Language: ${show.language}</span>
           <span>Rating: ${show.rating.average}</span>
-          <span>Network: ${show.network.name}</span>
+          <span>Network: ${show.network?.name || 'CBS'}</span>
           <span>Genres: ${show.genres.join(', ')}</span>
         </div>
       </div>
@@ -58,17 +82,7 @@ export const showModal = async (showId) => {
     <section class="comments-section">
       <h3>Comments <span id="count">(3)</span></h3>
       <ul class="comments">
-        ${comments.map(
-    (comment) => `
-          <li class="comment">
-            <span id="date">${comment.creation_date}</span>
-            <span class="author">${comment.username}</span>
-            <span class="insight"
-              >${comment.comment}</span
-            >
-        </li>
-        `,
-  )}
+        
       </ul>
       <h3>Add comment</h3>
       <form>
@@ -92,5 +106,23 @@ export const showModal = async (showId) => {
   `;
 
   modal.classList.remove('hide-modal');
+  document.body.style.overflow = 'hidden';
   modal.innerHTML = popupMarkup;
+  commentsContainer = document.querySelector('.comments');
+  await renderComments(showId);
+};
+
+export const hideModal = () => {
+  modal.classList.add('hide-modal');
+  document.body.style.overflow = 'unset';
+};
+
+export const renderShowsCount = () => {
+  const count = countHomeShows();
+  document.querySelector('#shows-count').innerHTML = `(${count})`;
+};
+
+export const clearForm = () => {
+  document.querySelector('#author').value = '';
+  document.querySelector('#insight').value = '';
 };
