@@ -25,6 +25,11 @@ const commentSubmitHandler = async (e) => {
   // Clear the comment form.
   inputAuthor.value = '';
   inputComment.value = '';
+
+  // Update the comment counter.
+  const commentCount = commentCounter();
+  const commentCountElement = document.querySelector('#comment-count');
+  commentCountElement.innerHTML = `${commentCount}`;
 };
 
 const addModalListeners = () => {
@@ -50,11 +55,9 @@ mainSection.addEventListener('click', async (e) => {
 window.addEventListener('DOMContentLoaded', async () => {
   shows = await api.getShowsAndLikes();
   view.renderShows(shows);
+
+  // Set the initial comment count.
+  const commentCount = commentCounter();
+  const commentCountElement = document.querySelector('#comment-count');
+  commentCountElement.innerHTML = `${commentCount}`;
 });
-/* eslint-disable */
-// Load the item comments when the popup loads.
-commentsDiv.addEventListener('load', async () => {
-  const comments = await getComments();
-  renderComments(comments);
-});
-/* eslint-enable  */
