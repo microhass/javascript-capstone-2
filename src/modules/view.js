@@ -35,7 +35,7 @@ export const renderShows = (shows) => {
   showsContainer.innerHTML = showsMarkup;
 };
 
-export const renderModal = async (showId) => {
+export const showModal = async (showId) => {
   const show = await api.getShow(showId);
   const comments = await api.getComments(showId);
 
@@ -61,10 +61,10 @@ export const renderModal = async (showId) => {
         ${comments.map(
     (comment) => `
           <li class="comment">
-            <span id="date">${comment.date}</span>
-            <span class="author">${comment.author}</span>
+            <span id="date">${comment.creation_date}</span>
+            <span class="author">${comment.username}</span>
             <span class="insight"
-              >${show.insight}</span
+              >${comment.comment}</span
             >
         </li>
         `,
@@ -85,11 +85,12 @@ export const renderModal = async (showId) => {
           rows="10"
           placeholder="Your insights"
         ></textarea>
-        <button type="submit">Comment</button>
+        <button type="submit" id="submit-comment-btn">Comment</button>
       </form>
     </section>
   </div>
   `;
 
+  modal.classList.remove('hide-modal');
   modal.innerHTML = popupMarkup;
 };

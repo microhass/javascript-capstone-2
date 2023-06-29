@@ -121,7 +121,7 @@ form button {
 
 /* ============== Modal ============= */
 .modal {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   overflow-y: scroll;
   width: 90vw;
@@ -132,6 +132,7 @@ form button {
   border-radius: 8px;
   z-index: 10;
   opacity: 1;
+  color: #fff;
 }
 
 .hide-modal {
@@ -155,6 +156,16 @@ form button {
 
 .popup h2 {
   font-size: 28px;
+}
+
+.popup .show-img {
+  width: fit-content;
+  max-height: 468px;
+  margin: 1rem auto;
+}
+
+.popup .show-img img {
+  height: 468px;
 }
 
 .popup .show-details div {
@@ -192,6 +203,8 @@ textarea {
   padding: 8px;
   font-size: 14px;
   border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 form input:focus,
