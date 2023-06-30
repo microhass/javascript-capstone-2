@@ -3,11 +3,12 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Awesome Books](#-awesome-books)
+- [📖 JavaScript Capstone Project](#-javascript-capstone-project)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [Presentation video ](#presentation-video-)
   - [💻 Getting Started ](#-getting-started-)
     - [Install](#install)
     - [Usage](#usage)
@@ -20,9 +21,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome Books<a name="about-project"></a>
+# 📖 JavaScript Capstone Project<a name="about-project"></a>
 
-**A simple JavaScript application to create and manage a list of books.**
+**Microverse module 2 capstone project.**
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -55,16 +56,21 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Add new books: Enter the book title and author to add a new book to the list.**
-- **Remove books: Remove books from the list when no longer needed**
-- **Save and remove books from localStorage**
+- **Fetch data from an API.**
+- **Render fetched data.**
+- **Update UI based on the store state.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Live Demo -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-<a href="https://microhass.github.io/awesome-books/"> See Project 🚀</a>
+
+<a href="https://microhass.github.io/javascript-capstone-2/dist/"> See Project 🚀</a>
+
+## Presentation video <a name="presentation-video"></a>
+
+<a href="https://drive.google.com/file/d/1M0qcOpPY2WpupNoGs8JqRupRhFKudVtl/view?usp=sharing"> Capstone 2 presentation</a>
 
 <!-- GETTING STARTED -->
 
@@ -74,40 +80,45 @@
 
 To get get a local copy up and running, you can follow these simple steps:
 
-
 ### Install
+
 Clone the repository to your local machine using the following command:
 
 ```sh
-  git clone https://github.com/microhass/awesome-books.git
+  git clone https://github.com/microhass/javascript-capstone-2.git
 ```
+
 Navigate to the project directory:
 
 ```sh
- cd awesome-books
+ cd javascript-capstone-2
 ```
 
-Open the index.html file in your web browser to view the project:
+Install the necessary dependencies by running:
+
 ```sh
- open index.html
+ npm install
 ```
 
-You can now make changes to the project as desired and push them back to the repository using Git.
+Start the local webpack dev server using the command:
+
+```sh
+  npm start
+```
+
+The website will be live at `localhost:8080/`. You can now make changes to the project as desired and push them back to the repository using Git.
 
 That's it! With these simple steps, you should be able to get up and running with the Book list project in no time. Happy coding!
 
-
-
 ### Usage
 
-To use this project, simply visit the following link: https://github.com/microhass/awesome-books
+To use this project, simply visit the following link: https://github.com/microhass/javascript-capstone-2
 
-- **Open the <a href="https://microhass.github.io/awesome-books/">project 🚀</a> in your web browser.**
+- **Open the <a href="https://microhass.github.io/javascript-capstone-2/dist">project 🚀</a> in your web browser.**
 
 - **Use the provided form to add books to the list.**
 
 - **To remove a book, click the "Remove" button next to the book entry.**
-
 
 <!-- ### Run tests
 
@@ -120,7 +131,6 @@ Example command:
   bin/rails test test/models/article_test.rb
 ```
 --->
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,13 +146,11 @@ Example command:
 - Twitter: [@hassShakur](https://twitter.com/hassShakur)
 - LinkedIn: [hassanShakur](https://www.linkedin.com/in/hassanShakur)
 
-👤 **Okolie Tochukwu**
+👤 **Kerlos Bahaa**
 
-- GitHub: [@ticoniq](https://github.com/ticoniq)
-- Twitter: [@ticoniq_](https://twitter.com/ticoniq_)
-- LinkedIn: [ticoniq](https://linkedin.com/in/ticoniq)
-
-
+- GitHub: [@kerlos-bahaa](https://github.com/kerlos-bahaa)
+- Twitter: [@kerlos-bahaa](https://twitter.com/KerlosBahaa)
+- LinkedIn: [kerlos-bahaa](https://www.linkedin.com/in/kerlos-bahaa-457a8925a/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,7 +160,6 @@ Example command:
 
 <!-- > Describe 1 - 3 features you will add to the project. -->
 
-- [ ] **Additional pages: More pages will be added to the project to display additional content.**
 - [ ] **Responsive design: The project will be optimized to display properly on different screen sizes, including desktops, tablets, and mobile devices.**
 - [ ] **JavaScript interactivity: Some interactive features will be added using JavaScript to enhance the user experience.**
 
@@ -185,7 +192,7 @@ Feel free to check the [issues page](../../issues/).
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
-  
+
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
