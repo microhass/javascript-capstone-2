@@ -8,6 +8,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [Presentation video ](#presentation-video-)
   - [💻 Getting Started ](#-getting-started-)
     - [Install](#install)
     - [Usage](#usage)
@@ -66,6 +67,10 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 <a href="https://microhass.github.io/javascript-capstone-2/dist/"> See Project 🚀</a>
+
+## Presentation video <a name="presentation-video"></a>
+
+<a href="https://drive.google.com/file/d/1M0qcOpPY2WpupNoGs8JqRupRhFKudVtl/view?usp=sharing"> Capstone 2 presentation</a>
 
 <!-- GETTING STARTED -->
 
@@ -141,6 +146,12 @@ Example command:
 - Twitter: [@hassShakur](https://twitter.com/hassShakur)
 - LinkedIn: [hassanShakur](https://www.linkedin.com/in/hassanShakur)
 
+👤 **Kerlos Bahaa**
+
+- GitHub: [@kerlos-bahaa](https://github.com/kerlos-bahaa)
+- Twitter: [@kerlos-bahaa](https://twitter.com/KerlosBahaa)
+- LinkedIn: [kerlos-bahaa](https://www.linkedin.com/in/kerlos-bahaa-457a8925a/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -149,7 +160,6 @@ Example command:
 
 <!-- > Describe 1 - 3 features you will add to the project. -->
 
-- [ ] **Drag & drop functionality.**
 - [ ] **Responsive design: The project will be optimized to display properly on different screen sizes, including desktops, tablets, and mobile devices.**
 - [ ] **JavaScript interactivity: Some interactive features will be added using JavaScript to enhance the user experience.**
 
